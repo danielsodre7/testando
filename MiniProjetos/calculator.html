@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+   
+
+    .keys {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 10px;
+    }
+
+    .key {
+    width: 75px;
+    height: 75px;
+    border: 2px solid #FFF;
+    color: rgb(10, 10, 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    }
+
+    .key.active {
+    border: 2px solid rgb(67, 99, 243);
+    color: rgb(67, 99, 243);
+    background-color: cornflowerblue;
+    }
+ 
+
+    .resultado {
+    width: 330px;
+    height: 80px;
+    border: 2px solid #FFF;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+    </style>
+
+</head>
+
+<body>
+<div class="resultado"></div>
+
+<div class="keys">
+
+    <div data-key="keyac" class="key">AC</div>
+    <div data-key="-0" class="key">+/-</div>
+    <div data-key="/"  class="key">/</div>
+    <div data-key="key<"  class="key"><=</div>
+
+    <div data-key="7" value="7" class="key">7</div>
+    <div data-key="8" value="8" class="key">8</div>
+    <div data-key="9" value="9" class="key">9</div>
+    <div data-key="*"  class="key">*</div>
+    
+    <input type="button" value="4" id="4" class="key">
+    <input type="button" value="5" id="5" class="key">
+    <input type="button" value="6" id="6" class="key">
+    
+    <div data-key="-"  class="key">-</div>
+
+    <div data-key="1" value="1" class="key">1</div>
+    <div data-key="2" value="2" class="key">2</div>
+    <div data-key="3" value="3" class="key">3</div>
+    <div data-key="+"  class="key">+</div>
+
+    <div data-key="0" value="0" class="key">0</div>
+    <div data-key=""   class="key"></div>
+    <div data-key="."  class="key">.</div>
+    <div data-key="enter"  class="key">=</div>
+    
+</div>
+    
+<script>
+
+let alteraClick = document.querySelectorAll('.key');
+
+for (e of alteraClick){
+    e.addEventListener('click', (e)=>{
+        e.target.classList.add('active');
+
+        setTimeout(function(){
+            e.target.classList.remove('active');
+        }, 90)
+    }, false)
+}
+
+
+
+document.addEventListener('click', pegandoDados);
+
+function pegandoDados(numero) {
+
+    //var totalValor = "";
+    
+    //const valorInserido = document.querySelector(`div[data-key="${valor}"]`);
+    //    <div data-key="4" class="key">4</div>
+    //    <div data-key="5" value="5" class="key">5</div>
+    //    <div data-key="6" value="6" class="key">6</div>
+    
+    
+
+    const valorInserido = document.querySelector(`input[id="${numero}"]`).value;
+
+    
+
+
+    document.querySelector(".resultado").innerHTML = valorInserido;
+
+
+}
+
+/*
+var capturando = "";
+function capturar () {
+    capturando = document.getElementById(`div[data-key="${valor}"]`).value;
+    document.getElementById('valorDigitado').innerHTML = capturando;
+}
+*/
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

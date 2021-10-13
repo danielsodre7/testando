@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+            background-color: rgb(252, 235, 235);
+        }
+
+        #geral{
+            width: 380px;
+            height: 150px;
+            background: rgb(202, 154, 247);
+            border:rgba(241, 162, 252, 0.904) solid 1px;
+            border-radius: 15px;
+            box-shadow: 6px -5px 5px rgb(230, 189, 247);
+        }
+
+        h1 {
+            text-align-last: center;
+            font-size: 23px;
+            text-shadow: 1px -1px 1px rgba(116, 127, 148, 0.801);
+            color: rgb(39, 30, 100);
+        }
+
+        #formulario{
+            align-items: center;
+            margin-left: 70px;
+            margin-bottom: 15px;
+        }    
+
+        #resultado{
+            margin-left: 70px;
+            
+
+        }
+
+        input{
+            height: 20px;
+            border: 0;
+            border-radius: 3px;
+            box-shadow: 2px -2px 2px rgba(53, 50, 59, 0.411);
+            background-color: rgb(213, 207, 247);
+        }
+
+        input[type="button"]{
+            background: rgb(219, 188, 248);
+            font-size: 16px;
+            margin-left: 15px;
+            border-radius: 5px;
+            color: rgb(56, 39, 168);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="geral">
+    <H1> Transformando binário em decimal</H1>
+
+    <form id="formulario">
+        <input placeholder="Digite aqui" id="binario" idtype="number"  type="number"/>
+        <input type="button" value="Converte" onclick="binDec()"> 
+    </form>
+
+    <div id="resultado"> <input type="text" name="resultado" id="retorno"></div>
+
+    </div>
+    
+    <script>
+
+        function validbin (binarioTest) {
+            
+            var validarBin = new RegExp(/^[0-1]{8}$/);
+            
+            return validarBin.test(binarioTest)       
+            
+        }
+
+        function binDec () {
+            const convert_bin = document.getElementById("binario").value;
+            
+          
+            if (convert_bin !== validbin) {
+                alert("Incerir 0 ou 1");
+                
+            } else if(convert_bin.length>8) {                
+                alert("Incerir 8 digitos");
+                return false;
+            } else {
+                alert("Cauculando");
+            }
+
+           
+            
+            const numeroD = parseInt(convert_bin, 2);
+
+            document.getElementById("retorno").value = numeroD;
+            return true;
+        }
+
+
+    </script>
+    
+</body>
+</html>
+
