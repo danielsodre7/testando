@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+
+
+#total{
+    height: 0;
+    margin: 0;
+    max-width: 1280px;
+    background-color:#FFF;
+    font-family: 'Dosis', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    }
+
+.div-menutotal{
+    height: 30px ;
+    width: 1200px ;
+    color: transparent;
+    text-align: right;
+        
+}
+
+.div-menu{
+    line-height:50px;
+    display: inline;
+    margin-left: 90px;
+}
+
+
+.div-master{
+    height: 900px ;
+    width: 1200px ;
+    background-color: darkgrey;
+    margin-top: 15px;
+}
+
+.div-filho{
+    background-color: darkorchid;
+    height: 5px ;
+    width: 5px ;
+    margin: 1px;
+}
+
+
+.roodape{
+    height: 100px ;
+    width: 1200px ;
+    margin-bottom:10px ;
+    background: darkgrey;
+}
+
+.roodape.active{
+    border: 5px solid red
+}
+
+
+
