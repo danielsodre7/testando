@@ -84,7 +84,7 @@ function alterarBordas (numero) {
         element.addEventListener((e)=>{
             e.target.style.borderradius = borda1, borda2, borda3, borda4;
         })
-        
+
 
     }
 
@@ -151,3 +151,4 @@ function caucValor(caucula,simb,caucula2) {
     
 
 console.log(caucValor('0,22','*', '8,11'));
+

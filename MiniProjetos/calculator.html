@@ -114,9 +114,43 @@ for (e of alteraClick){
 
 
 
-document.addEventListener('click', pegandoDados);
+document.addEventListener('click', pegandoDados, true);
 
 function pegandoDados(numero) {
+
+const valorInserido = document.querySelector(`input[id="${numero}"]`).nodeValue;
+
+
+//const resultado = document.querySelector(".resultado").innerHTML = valorInserido;
+
+console.log(valorInserido)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //var totalValor = "";
     
@@ -125,18 +159,6 @@ function pegandoDados(numero) {
     //    <div data-key="5" value="5" class="key">5</div>
     //    <div data-key="6" value="6" class="key">6</div>
     
-    
-
-    const valorInserido = document.querySelector(`input[id="${numero}"]`).value;
-
-    
-
-
-    document.querySelector(".resultado").innerHTML = valorInserido;
-
-
-}
-
 /*
 var capturando = "";
 function capturar () {
@@ -144,14 +166,7 @@ function capturar () {
     document.getElementById('valorDigitado').innerHTML = capturando;
 }
 */
-
-
-
-
-
-
 </script>
-
 </body>
 </html>
 
