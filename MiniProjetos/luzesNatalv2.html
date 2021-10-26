@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luzes de natal</title>
+    <style>
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+   
+    body {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #333;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .leds {
+        display: grid;
+        grid-template-columns: repeat(5, 7fr);
+        gap: 10px;
+    }
+
+    .led {
+        width: 70px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: rgb(99, 97, 97);
+        margin: 50px;
+    }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<button id="novaLed" onclick="addLed()"> Nova Fileira</button>
+
+<div class="leds">
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+<div class="led"></div>
+</div>
+
+    
+<script>
+
+
+
+function addLed(){
+const divNew = document.createElement("div");
+divNew.setAttribute("class","led");
+document.body.div('leds').appendChild(divNew);
+
+}
+
+
+
+
+</script>
+</body>
+</html>
+

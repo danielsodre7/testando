@@ -14,22 +14,43 @@
     }
 
     body {
-        display: flex;
-        min-height: 100vh;
-        justify-content: center;
-        align-items: center;
         background-color: #333;
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #novaLed {
+        color: violet;
+        background-color: unset;
+        margin-top: 25px;
+        margin-left: 25px;
     }
    
 
     .led {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 90px;
+        background-color: rgb(97, 97, 97);
         border-radius: 50%;
-        background-color: rgb(99, 97, 97);
+        background-color: none;
         margin: 50px;
     }
+
+    #led {
+        width: 70px;
+        height: 90px;
+        background-color: rgb(97, 97, 97);
+        border-radius: 50%;
+        background-color: none;
+        margin: 50px;
+    }
+
+
+    span{
+        color: antiquewhite;
+    }
+
+
+    
 
 
     </style>
@@ -38,11 +59,180 @@
 
 <body>
 
+<button id="novaLed" onclick="alteraClasse(),addLed()"> Nova led</button>
+
+<button id="pisca" onclick="mudarCor()"> Ligar led</button>
+
+<button id="pisca" onclick="vaiKvai()"> teste</button>
+
+
+<span >O primeiro click fica como modelo, cada click adicional cria uma nova luz</span>
     
-<div class="led"> </div>
-    
+
+
+
+
 <script>
+
+// Muda a posição das div e está ok
+function alteraClasse(){
+
+const items = document.querySelectorAll('.led');
+
+for (item of items) {
+item.style.position ='absolute'
+
+item.onmousemove = e => {
+    const item = e.target
+    item.style.cursor = 'move'
+    if (e.buttons) {
+        item.style.top = `${e.clientY - (item.clientHeight / 1)}px`
+        item.style.left = `${e.clientX - (item.clientWidth / 1)}px`
+    }
+  }
+ }
+}
+// cria as divs e está ok
+function addLed(){
+    const divNew = document.createElement("div");
+    divNew.setAttribute("id","led");
+    divNew.setAttribute("class","led");
+    document.body.appendChild(divNew); // .insertBefore() ver como incerir dentro de uma div
+   
+}
+
+// muda as cores, mas está alterando a primeira div
+
+
+///opção por Math e array
+function mudarCor(){
+var arrCores = ['blue', 'red', 'yellow', 'pink', 'green', 'wheat'];
+var arrCoresUsadas = [];
+
+setInterval(function(){
+
+    if (arrCores.length === 0){
+        arrCores = arrCoresUsadas;
+        arrCoresUsadas = [];
+    }
+
+    var index = Math.round(Math.random() * (arrCores.length-1));
+
+    
+    document.getElementById('led').style.backgroundColor = arrCores[index];
+    
+    arrCoresUsadas.push(arrCores[index]);
+    arrCores.splice(index, 1);
+}, 1000);
+}
+
+//opção por relace e time falta o laço for ou outro tentar em uma outra funçao
+function vaiKvai(){
+
+    var pegandoDiv = document.getElementsByClassName('led');
+    console.log(pegandoDiv)
+
+    for(i=0; i<=vaiKvai.length; i++) {
+
+    let corAzul = "blue";
+    let mudandoCor = corAzul.replace("blue", "red");   
+
+    setInterval(function(){
+   
+    document.getElementById('led').style.backgroundColor = corAzul;
+       
+    }, 1000);
+    setInterval(function(){
+   
+   document.querySelector('#led').style.backgroundColor = mudandoCor;
+      
+   }, 2000);
+    }
+   
+}
+
+/*
+
+
+
+function pegarDivs(){
+
+let umLed = document.getElementById('led');
+let arrCores = ['blue', 'red', 'yellow', 'pink', 'green', 'wheat'];
+let arrCoresUsadas = [];
+
+for (var i=0; umLed.length; i++){
+        setInterval(function(){
+
+            if (arrCores.length === 0){
+                arrCores = arrCoresUsadas;
+                arrCoresUsadas = [];
+            }
+
+            let index = Math.round(Math.random() * (arrCores.length-1));
+
+            //document.getElementById('led').style.backgroundColor = arrCores[index];
+            
+            arrCoresUsadas.push(arrCores[index]);
+            arrCores.splice(index, 1);
+        }, 1000);
+            
+}
+
+}
+*/
+
+/*
+setInterval( function(){
+
+
+    var index = Math.round(Math.random() *(arrCores.length-1));
+
+    arrCoresUsadas.push(arrCores[index]);
+    arrCores.slice(index, 1);
+
+    if (arrCores.length === 0){
+        arrCores = arrCoresUsadas;
+        arrCoresUsadas = [];
+    }
+
+},1000)
+*/
+
+
+/*function mudarCor(){
+   var arrCores = ['#f00', '#0f0', '#0ff'];
+var arrCoresUsadas = [];
+
+setInterval(function(){
+    if (arrCores.length === 0){
+        arrCores = arrCoresUsadas;
+        arrCoresUsadas = [];
+    }
+    document.getElementById('output').innerText += arrCores + '   -   ' + arrCoresUsadas + '\n';
+    
+    var index = Math.round(Math.random() * (arrCores.length-1));
+    document.getElementById('divRandom').style.backgroundColor = arrCores[index];
+    
+    arrCoresUsadas.push(arrCores[index]);
+    arrCores.splice(index, 1);
+}, 500);
+
+    
+}
+*/
+// ok mas apenas na primeira div =document.querySelectorAll(".led")[0].style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+
+    /*
+        let mudaDiv = document.querySelectorAll('.led');
+        let randomColor = Math.floor(Math.random() * cores.length);
+        let cor = cores[randomColor];
+        mudaDiv.style.backgroundColor = cor;    
+*/
+     
+
 </script>
+
 </body>
 </html>
-
