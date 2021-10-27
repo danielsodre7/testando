@@ -152,3 +152,7 @@ function caucValor(caucula,simb,caucula2) {
 
 console.log(caucValor('0,22','*', '8,11'));
 
+
+
+
+
