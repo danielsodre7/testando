@@ -63,12 +63,16 @@
 
 <button id="pisca" onclick="mudarCor()"> Ligar led</button>
 
-<button id="pisca" onclick="vaiKvai()"> teste</button>
+<button id="pisca" onclick="vaiKvai()"> Ligar led</button>
 
 
 <span >O primeiro click fica como modelo, cada click adicional cria uma nova luz</span>
     
+<div class="leds" id="leds">
+    <div class="led"></div>
+    </div>
 
+</div>
 
 
 
@@ -94,12 +98,13 @@ item.onmousemove = e => {
 }
 // cria as divs e está ok
 function addLed(){
-    const divNew = document.createElement("div");
-    divNew.setAttribute("id","led");
-    divNew.setAttribute("class","led");
-    document.body.appendChild(divNew); // .insertBefore() ver como incerir dentro de uma div
-   
+
+const divNew = document.createElement("div");   
+divNew.setAttribute("class","led");
+divNew.setAttribute("id","led");
+document.getElementById('leds').insertAdjacentElement('beforeend', divNew)
 }
+
 
 // muda as cores, mas está alterando a primeira div
 
@@ -108,48 +113,52 @@ function addLed(){
 function mudarCor(){
 var arrCores = ['blue', 'red', 'yellow', 'pink', 'green', 'wheat'];
 var arrCoresUsadas = [];
+var divPai = document.getElementById('leds'); 
+
+for(let i = 0; i < divPai.children.length; i++){
 
 setInterval(function(){
 
-    if (arrCores.length === 0){
-        arrCores = arrCoresUsadas;
-        arrCoresUsadas = [];
-    }
 
-    var index = Math.round(Math.random() * (arrCores.length-1));
+for(let i = 0; i < divPai.children.length; i++){}
+if(divPai.children[i].tagName == "DIV");
 
-    
-    document.getElementById('led').style.backgroundColor = arrCores[index];
-    
-    arrCoresUsadas.push(arrCores[index]);
-    arrCores.splice(index, 1);
+if (arrCores.length === 0){
+    arrCores = arrCoresUsadas;
+    arrCoresUsadas = [];
+}
+
+var index = Math.round(Math.random() * (arrCores.length-1));
+
+
+document.getElementById('led').style.backgroundColor = arrCores[index];
+
+arrCoresUsadas.push(arrCores[index]);
+arrCores.splice(index, 1);
 }, 1000);
+}
 }
 
 //opção por relace e time falta o laço for ou outro tentar em uma outra funçao
+
 function vaiKvai(){
+var divPai = document.getElementById('leds'); // ver .getTime()
+let corAzul = "blue";
+let mudandoCor = corAzul.replace("blue", "white");  
 
-    var pegandoDiv = document.getElementById('led');
-    console.log(pegandoDiv)
+for(let i = 0; i < divPai.children.length; i++){
+    if(divPai.children[i].tagName == "DIV");
 
-    for(i=0; i<=vaiKvai.length; i++) {
+setInterval(function(){
+divPai.children[i].style.backgroundColor = corAzul;
+}, 1000);
 
-    let corAzul = "blue";
-    let mudandoCor = corAzul.replace("blue", "red");   
-
-    setInterval(function(){
-   
-    document.getElementById('led').style.backgroundColor = corAzul;
-       
-    }, 1000);
-    setInterval(function(){
-   
-   document.querySelector('#led').style.backgroundColor = mudandoCor;
-      
-   }, 2000);
-    }
-   
+setInterval(function(){
+divPai.children[i].style.backgroundColor = mudandoCor;
+}, 2000);
 }
+}
+
 
 /*
 

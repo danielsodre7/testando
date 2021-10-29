@@ -45,8 +45,12 @@
 
 <body>
 
-<button id="novaLed" onclick="addLed()"> Nova Fileira</button>
-<button id="pisca" onclick="teste()"> teste</button>
+    <div class="menu">
+<button id="novaLed" onclick="addLed()"> Nova Led</button>
+<button id="pisca" onclick="ledDuasCores()">Led Azul/Branca</button>
+</div>
+
+
 
 <div class="leds" id="leds">
 <div class="led"></div>
@@ -59,44 +63,20 @@
 
 function addLed(){
 
-const divNew = document.createElement("div");
+const divNew = document.createElement("div");   
 divNew.setAttribute("class","led");
 divNew.setAttribute("id","led");
 document.getElementById('leds').insertAdjacentElement('beforeend', divNew)
 }
 
 
-function vaiKvai(){
-
-var pegandoDiv = document.getElementById('led');
-console.log(pegandoDiv)
-
-for(let i=0; i<=vaiKvai.length; i++) {
-
-let corAzul = "blue";
-let mudandoCor = corAzul.replace("blue", "white");   
-
-setInterval(function(){
-
-document.parent.getElementById('leds').style.backgroundColor = corAzul;
-   
-}, 1000);
-setInterval(function(){
-
-document.parent.querySelector('#leds').style.backgroundColor = mudandoCor;
-  
-}, 2000);
-}
-
-}
-
-function teste(){
-var divPai = document.getElementById('leds');
+function ledDuasCores(){
+var divPai = document.getElementById('leds'); // ver .getTime()
 let corAzul = "blue";
 let mudandoCor = corAzul.replace("blue", "white");  
 
 for(let i = 0; i < divPai.children.length; i++){
-    if(divPai.children[i].tagName == "DIV")
+    if(divPai.children[i].tagName == "DIV");
 
 setInterval(function(){
 divPai.children[i].style.backgroundColor = corAzul;
