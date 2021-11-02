@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoinhas</title>
+    <style>
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+   
+    body {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(239, 246, 255);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .pessoas {
+        display: grid;
+        grid-template-columns: repeat(1, 9999fr);
+        gap: 10px;
+    }
+
+    .nova_pessoa{
+        width: 250px;
+        height: 150px;
+        background-color: rgb(142, 191, 241);
+        border-radius: 15px;
+        margin: 3px;
+    }
+
+    .nova_pessoa p{
+        margin: 10px;
+    }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="menu">
+<button id="addPessoas" onclick="addPessoas()"> Nova pessoa</button>
+</div>
+
+
+
+<div class="pessoas" id="pessoas">
+<div class="nova_pessoa">
+    <p>
+    Nome: eu <br>
+    End: Rua Bla bla Bla <br>
+    Celular: 19 9999999999 <br>
+    Aniversário: 01/01/0000 <br>
+    </p>
+</div>
+
+
+</div>
+
+    
+<script>
+
+
+
+</script>
+</body>
+</html>
+
