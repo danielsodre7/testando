@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+    
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    @keyframes animation {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.label {
+  font-size: 100px;
+  line-height: 0.9;
+}
+
+.border {
+  border: 2px solid #f2f2f2;
+}
+
+.progress {
+  height: 10px;
+  background-color: black;
+}
+
+.animate {
+  animation-name: animation;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.pause {
+  animation-play-state: paused;
+}
+
+.buttons-group {
+  display: flex;
+  margin-top: 20px;
+}
+
+.button {
+  border: 1px solid #000;
+  color: #000;
+  padding: 10px 20px;
+  margin: 0 20px 0 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translate3d(1px, 1px, 0);
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+    </style>
+
+</head>
+<div class="container">
+    <div class="label" id="#label">1</div>
+    <div class="border">
+      <div id="#progress" class="progress"></div>
+    </div>
+    <div class="buttons-group">
+      <button class="button" id="#resume">Resume</button>
+      <button class="button disabled" id="#pause">Pause</button>
+      <button class="button disabled" id="#reset">Reset</button>
+    </div>
+  </div>
+<body>
+
+
+
+
+<script>
+(function () {
+  var delay = 3000;
+
+  var label = document.getElementById("#label");
+  var value = parseInt(label.textContent);
+
+  var progress = document.getElementById("#progress");
+
+  var resumeBtn = document.getElementById("#resume");
+  var pauseBtn = document.getElementById("#pause");
+  var resetBtn = document.getElementById("#reset");
+
+  var t = new timer(function () {
+    label.textContent = ++value;
+  }, delay);
+
+  progress.style.animationDuration = delay + "ms";
+
+  resumeBtn.addEventListener("click", function () {
+    t.resume();
+
+    pauseBtn.classList.remove("disabled");
+    resumeBtn.classList.add("disabled");
+    resetBtn.classList.add("disabled");
+
+    progress.classList.add("animate");
+    progress.classList.remove("pause");
+  });
+
+  pauseBtn.addEventListener("click", function () {
+    t.pause();
+
+    pauseBtn.classList.add("disabled");
+    resumeBtn.classList.remove("disabled");
+    resetBtn.classList.remove("disabled");
+
+    progress.classList.add("pause");
+  });
+
+  resetBtn.addEventListener("click", function () {
+    t.reset();
+
+    pauseBtn.classList.add("disabled");
+    resumeBtn.classList.remove("disabled");
+    resetBtn.classList.add("disabled");
+
+    // https://css-tricks.com/restart-css-animation/
+    progress.classList.remove("animate");
+    void progress.offsetWidth;
+    progress.classList.add("animate");
+  });
+})();
+
+function timer(callback, delay) {
+  var timerId;
+  var start;
+  var remaining = delay;
+
+  this.pause = function () {
+    window.clearTimeout(timerId);
+    remaining -= new Date() - start;
+  };
+
+  var resume = function () {
+    start = new Date();
+    timerId = window.setTimeout(function () {
+      remaining = delay;
+      resume();
+      callback();
+    }, remaining);
+  };
+  this.resume = resume;
+
+  this.reset = function () {
+    remaining = delay;
+  };
+}
+
+
+
+</script>
+</body>
+</html>
+

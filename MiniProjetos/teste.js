@@ -138,7 +138,7 @@ console.log(alterarBordas())
 */
 
 //https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Calculator-App.md
-
+/*
 function caucValor(caucula,simb,caucula2) {
 
     var validarBin1 = new RegExp(/^(\d{0,9})?(\,\d{0,2})?$/);
@@ -151,8 +151,37 @@ function caucValor(caucula,simb,caucula2) {
     
 
 console.log(caucValor('0,22','*', '8,11'));
+*/
 
 
+function Timer(callback, delay){
+    var timerId;
+    var star;
+    var remaining = delay;
+
+    this.pause = function(){
+        window.clearTimeout(timerId);
+        remaining -= new Date() - start;
+    };
+
+    var resume = function(){
+        start =new Date();
+            timerId = window.setTimeout(function(){
+           remaining = delay; 
+           resume();
+           callback();
+        }, remaining);
+    }
+    this.resume = resume;
+
+    this.reset = function(){
+        remaining = delay;
+    }
+}
+var timer= new Timer(function(){
+    console.log("chamou a funão");
+}, 3000);
+timer.resume();
 
 
 

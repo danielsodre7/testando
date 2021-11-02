@@ -59,19 +59,17 @@
 
 <body>
 
+<div class="menu">
 <button id="novaLed" onclick="alteraClasse(),addLed()"> Nova led</button>
-
-<button id="pisca" onclick="mudarCor()"> Ligar led</button>
-
-<button id="pisca" onclick="vaiKvai()"> Ligar led</button>
-
-
+<button id="pisca1" onclick="mudarCor()"> led Colorida</button>
+<button id="pisca2" onclick="vaiKvai()"> Ligar Azul/Branca</button>
+<button id="limpar" onclick="limpar()"> Limpar</button>
+<button id="luz" onclick="menosLuz()"> - Luz </button>
+<button id="luz" onclick="maisLuz()"> + Luz </button>
 <span >O primeiro click fica como modelo, cada click adicional cria uma nova luz</span>
-    
-<div class="leds" id="leds">
-    <div class="led"></div>
-    </div>
+</div>
 
+<div class="leds" id="leds">
 </div>
 
 
@@ -99,6 +97,7 @@ item.onmousemove = e => {
 // cria as divs e está ok
 function addLed(){
 
+
 const divNew = document.createElement("div");   
 divNew.setAttribute("class","led");
 divNew.setAttribute("id","led");
@@ -106,42 +105,40 @@ document.getElementById('leds').insertAdjacentElement('beforeend', divNew)
 }
 
 
-// muda as cores, mas está alterando a primeira div
-
+// muda as cores,
 
 ///opção por Math e array
 function mudarCor(){
+    clearInterval(vaiKvai);
 var arrCores = ['blue', 'red', 'yellow', 'pink', 'green', 'wheat'];
 var arrCoresUsadas = [];
 var divPai = document.getElementById('leds'); 
 
 for(let i = 0; i < divPai.children.length; i++){
+    if(divPai.children[i].tagName == "DIV");
 
-setInterval(function(){
-
-
-for(let i = 0; i < divPai.children.length; i++){}
-if(divPai.children[i].tagName == "DIV");
-
+let colorido = setInterval(function(){
 if (arrCores.length === 0){
     arrCores = arrCoresUsadas;
     arrCoresUsadas = [];
 }
-
 var index = Math.round(Math.random() * (arrCores.length-1));
-
-
-document.getElementById('led').style.backgroundColor = arrCores[index];
-
+divPai.children[i].style.backgroundColor = arrCores[index];
 arrCoresUsadas.push(arrCores[index]);
 arrCores.splice(index, 1);
 }, 1000);
+
+limpar.addEventListener("click", function() {
+    clearInterval(colorido);
+})
 }
 }
 
-//opção por relace e time falta o laço for ou outro tentar em uma outra funçao
+//opção por relace e setInterval
 
 function vaiKvai(){
+
+
 var divPai = document.getElementById('leds'); // ver .getTime()
 let corAzul = "blue";
 let mudandoCor = corAzul.replace("blue", "white");  
@@ -149,97 +146,44 @@ let mudandoCor = corAzul.replace("blue", "white");
 for(let i = 0; i < divPai.children.length; i++){
     if(divPai.children[i].tagName == "DIV");
 
-setInterval(function(){
+let azul = setInterval(function(){
 divPai.children[i].style.backgroundColor = corAzul;
 }, 1000);
 
-setInterval(function(){
+let branca = setInterval(function(){
 divPai.children[i].style.backgroundColor = mudandoCor;
 }, 2000);
+limpar.addEventListener("click", function() {
+    clearInterval(azul);
+    clearInterval(branca);
+})
 }
 }
 
+function maisLuz(){
+const luzForte = document.getElementById('leds');
 
-/*
+for(let i = 0; i < luzForte.children.length; i++){
+    if(luzForte.children[i].tagName == "DIV");
 
-
-
-function pegarDivs(){
-
-let umLed = document.getElementById('led');
-let arrCores = ['blue', 'red', 'yellow', 'pink', 'green', 'wheat'];
-let arrCoresUsadas = [];
-
-for (var i=0; umLed.length; i++){
-        setInterval(function(){
-
-            if (arrCores.length === 0){
-                arrCores = arrCoresUsadas;
-                arrCoresUsadas = [];
-            }
-
-            let index = Math.round(Math.random() * (arrCores.length-1));
-
-            //document.getElementById('led').style.backgroundColor = arrCores[index];
-            
-            arrCoresUsadas.push(arrCores[index]);
-            arrCores.splice(index, 1);
-        }, 1000);
-            
-}
-
-}
-*/
-
-/*
-setInterval( function(){
-
-
-    var index = Math.round(Math.random() *(arrCores.length-1));
-
-    arrCoresUsadas.push(arrCores[index]);
-    arrCores.slice(index, 1);
-
-    if (arrCores.length === 0){
-        arrCores = arrCoresUsadas;
-        arrCoresUsadas = [];
-    }
-
-},1000)
-*/
-
-
-/*function mudarCor(){
-   var arrCores = ['#f00', '#0f0', '#0ff'];
-var arrCoresUsadas = [];
-
-setInterval(function(){
-    if (arrCores.length === 0){
-        arrCores = arrCoresUsadas;
-        arrCoresUsadas = [];
-    }
-    document.getElementById('output').innerText += arrCores + '   -   ' + arrCoresUsadas + '\n';
-    
-    var index = Math.round(Math.random() * (arrCores.length-1));
-    document.getElementById('divRandom').style.backgroundColor = arrCores[index];
-    
-    arrCoresUsadas.push(arrCores[index]);
-    arrCores.splice(index, 1);
-}, 500);
-
+    luzForte.children[i].style.filter = "brightness(180%)";
+    luzForte.children[i].style.boxShadow = "inset 0 0 1em blue, 0 0 1em blue";
     
 }
-*/
-// ok mas apenas na primeira div =document.querySelectorAll(".led")[0].style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+}
 
+function menosLuz(){
+const poucaLuz = document.getElementById('leds');
 
-    /*
-        let mudaDiv = document.querySelectorAll('.led');
-        let randomColor = Math.floor(Math.random() * cores.length);
-        let cor = cores[randomColor];
-        mudaDiv.style.backgroundColor = cor;    
-*/
-     
+for(let i = 0; i < poucaLuz.children.length; i++){
+    if(poucaLuz.children[i].tagName == "DIV");
+
+    poucaLuz.children[i].style.filter = "brightness(50%)";
+    poucaLuz.children[i].style.boxShadow = "none";
+    
+}
+}
+
 
 </script>
 
