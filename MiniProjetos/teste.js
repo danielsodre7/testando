@@ -153,7 +153,7 @@ function caucValor(caucula,simb,caucula2) {
 console.log(caucValor('0,22','*', '8,11'));
 */
 
-
+/*
 function Timer(callback, delay){
     var timerId;
     var star;
@@ -182,6 +182,23 @@ var timer= new Timer(function(){
     console.log("chamou a funão");
 }, 3000);
 timer.resume();
+*/
+
+let scores = [1, 2, 3, 4, 5];
+
+let deletedScores = scores.splice(1, 2);
+
+console.log(scores);
+
+
+
+
+
+
+
+
+
+
 
 
 

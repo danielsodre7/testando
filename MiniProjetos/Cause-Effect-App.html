@@ -10,36 +10,103 @@
     * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border: 0;
     }
 
    
     body {
         display: flex;
-        min-height: 100vh;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
         background-color: rgb(239, 246, 255);
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    .pessoas {
+    .total {
         display: grid;
-        grid-template-columns: repeat(1, 9999fr);
-        gap: 10px;
+        grid-template-areas: "menu menu menu menu menu" "col1 col2 col3 col4 col5" "rodape rodape rodape rodape rodape"  ;
+        grid-template-columns: auto auto auto auto auto;
+        grid-auto-columns: 20% 20% 20% 20% 20%;
+        
+    }
+
+    
+    .total{
+        margin-left: 20px;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .menu{
+        grid-area: menu;
+    }
+
+    .col1{
+        grid-area: col1;
+        border-right : 2px solid black;
+        background-color: lightslategray;
+        height: 100%;;
+        
+    }
+    .col2{
+        grid-area: col2;
+        border-right : 2px solid black;
+        background-color: lightslategray;
+        height: 100%;;
+    }
+    .col3{
+        grid-area: col3;
+        border-right : 2px solid black;
+        background-color: lightslategray;
+        height: 100%;;
+    }
+    .col4{
+        grid-area: col4;
+        border-right : 2px solid black;
+        background-color: lightslategray;
+        height: 100%;;
+    }
+    .col5{
+        grid-area: col5;
+        border-right : 2px solid black;
+        background-color: lightslategray;
+        height: 100%;
+    }
+    .rodape{
+        grid-area: rodape;
+        
     }
 
     .nova_pessoa{
-        width: 250px;
+        width: 260px;
         height: 150px;
         background-color: rgb(142, 191, 241);
-        border-radius: 15px;
-        margin: 3px;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }   
+
+    p{
+        margin: 20px;
+        margin-top: 15px;
     }
 
-    .nova_pessoa p{
-        margin: 10px;
+    .menu{
+        height: 30px;
+        width: 100%;
+        background-color: blueviolet;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+
+    .rodape{
+        background-color: lightskyblue;
+        width: 100%;
+        height: 50px;
+        margin-top: 2px;
+        margin-bottom: 0px;
     }
 
 
@@ -47,19 +114,65 @@
 
 </head>
 
-<body>
+<body >
 
+    <div class="total">
 <div class="menu">
 <button id="addPessoas" onclick="addPessoas()"> Nova pessoa</button>
 </div>
 
-
-
-<div class="pessoas" id="pessoas">
+<div class="col1" id="coluna1"> Coluna 1
 <div class="nova_pessoa">
     <p>
     Nome: eu <br>
     End: Rua Bla bla Bla <br>
+    Cidade: Qualquer <br>
+    Estado: Sao Paulo <br>
+    Pais: Brasil <br>
+    Celular: 19 9999999999 <br>
+    Aniversário: 01/01/0000 <br>
+    </p>
+</div>
+<div class="nova_pessoa">
+    <p>
+    Nome: eu <br>
+    End: Rua Bla bla Bla <br>
+    Cidade: Qualquer <br>
+    Estado: Sao Paulo <br>
+    Pais: Brasil <br>
+    Celular: 19 9999999999 <br>
+    Aniversário: 01/01/0000 <br>
+    </p>
+</div>
+<div class="nova_pessoa">
+    <p>
+    Nome: eu <br>
+    End: Rua Bla bla Bla <br>
+    Cidade: Qualquer <br>
+    Estado: Sao Paulo <br>
+    Pais: Brasil <br>
+    Celular: 19 9999999999 <br>
+    Aniversário: 01/01/0000 <br>
+    </p>
+</div>
+<div class="nova_pessoa">
+    <p>
+    Nome: eu <br>
+    End: Rua Bla bla Bla <br>
+    Cidade: Qualquer <br>
+    Estado: Sao Paulo <br>
+    Pais: Brasil <br>
+    Celular: 19 9999999999 <br>
+    Aniversário: 01/01/0000 <br>
+    </p>
+</div>
+<div class="nova_pessoa">
+    <p>
+    Nome: eu <br>
+    End: Rua Bla bla Bla <br>
+    Cidade: Qualquer <br>
+    Estado: Sao Paulo <br>
+    Pais: Brasil <br>
     Celular: 19 9999999999 <br>
     Aniversário: 01/01/0000 <br>
     </p>
@@ -68,10 +181,89 @@
 
 </div>
 
+<div class="col2" id="coluna"> Coluna 2
+    <div class="nova_pessoa">
+        <p>
+        Nome: eu <br>
+        End: Rua Bla bla Bla <br>
+        Cidade: Qualquer <br>
+        Estado: Sao Paulo <br>
+        Pais: Brasil <br>
+        Celular: 19 9999999999 <br>
+        Aniversário: 01/01/0000 <br>
+        </p>
+    </div>
+</div>
+
+<div class="col3" id="coluna"> Coluna 3
+    <div class="nova_pessoa">
+        <p>
+        Nome: eu <br>
+        End: Rua Bla bla Bla <br>
+        Cidade: Qualquer <br>
+        Estado: Sao Paulo <br>
+        Pais: Brasil <br>
+        Celular: 19 9999999999 <br>
+        Aniversário: 01/01/0000 <br>
+        </p>
+    </div>
+</div>
+
+<div class="col4" id="coluna"> Coluna 4
+    <div class="nova_pessoa">
+        <p>
+        Nome: eu <br>
+        End: Rua Bla bla Bla <br>
+        Cidade: Qualquer <br>
+        Estado: Sao Paulo <br>
+        Pais: Brasil <br>
+        Celular: 19 9999999999 <br>
+        Aniversário: 01/01/0000 <br>
+        </p>
+    </div>
+</div>
+
+<div class="col5" id="coluna">Coluna 5
+    <div class="nova_pessoa">
+        <p>
+        Nome: eu <br>
+        End: Rua Bla bla Bla <br>
+        Cidade: Qualquer <br>
+        Estado: Sao Paulo <br>
+        Pais: Brasil <br>
+        Celular: 19 9999999999 <br>
+        Aniversário: 01/01/0000 <br>
+        </p>
+    </div>
+</div>
+
+<div class="rodape">
+    fim
+</div>
+
+</div>
     
 <script>
+// construir Menu e divs abaixo como grid sendo o div menu total e as divs adicionais como sendo pips em CSS **ok
+//criar a div com input, manipula quando clicar, quando finaliza inclui por splice botão atualiza ou salva
+// div deve ter um botão icon lixo para excluir
+// arrastar os disv para colunas adicionais 
+//adiconar os efeitos
+
+//Histórias de usuários:
+//O usuário pode ver uma lista de nomes de pessoas organizados verticalmente em um painel de resumo na página.
+//O usuário pode clicar em um nome na lista para atualizar um painel adjacente na página com o nome completo, endereço, número de telefone e aniversário desse indivíduo.
+//O usuário pode clicar em outro nome na lista para atualizar o painel de detalhes com as informações desse indivíduo.
+
+//Recurso bônus:
+//O usuário pode ver o nome da pessoa no painel de resumo destacado quando o cursor passa sobre ele.
+//O usuário pode ver o nome da pessoa no painel de resumo destacado usando um efeito de seleção (cor, tamanho, etc.) quando clicado. Este é um efeito diferente do efeito de foco
+//O usuário pode ver o efeito de seleção removido de um nome na lista de resumo quando um novo nome é clicado.
 
 
+const nova_pessoa = [
+  {nome: "...", rua: "...", cidade: "...", estado: "...", pais: "...", telefone: "...", aniversario: "..."}
+];
 
 </script>
 </body>
