@@ -45,8 +45,8 @@
         grid-area: col1;
         border-right : 2px solid black;
         background-color: lightslategray;
-        height: 100%;;
-        
+        height: 100%;
+        min-height: 820px;
     }
     .col2{
         grid-area: col2;
@@ -79,7 +79,7 @@
 
     .nova_pessoa{
         width: 260px;
-        height: 150px;
+        height: 170px;
         background-color: rgb(142, 191, 241);
         border-radius: 5px;
         margin-left: 5px;
@@ -87,9 +87,22 @@
         margin-top: 10px;
     }   
 
+    .nova_pessoa input{
+        width: 240px;
+        height: 20px;
+        background-color: beige;
+        margin: 1px 10px 1px 10px;
+    }
+
+    .menuDiv{
+        width: 260px;
+        height: 30px;
+    }
+
+
     p{
         margin: 20px;
-        margin-top: 15px;
+        margin-top: 5px;
     }
 
     .menu{
@@ -118,65 +131,15 @@
 
     <div class="total">
 <div class="menu">
-<button id="addPessoas" onclick="addPessoas()"> Nova pessoa</button>
+<button id="addPessoas" onclick="a()"> Nova pessoa</button>
+<button id="luz" onclick="addPessoas()"> + 11 </button>
 </div>
 
 <div class="col1" id="coluna1"> Coluna 1
-<div class="nova_pessoa">
-    <p>
-    Nome: eu <br>
-    End: Rua Bla bla Bla <br>
-    Cidade: Qualquer <br>
-    Estado: Sao Paulo <br>
-    Pais: Brasil <br>
-    Celular: 19 9999999999 <br>
-    Aniversário: 01/01/0000 <br>
-    </p>
-</div>
-<div class="nova_pessoa">
-    <p>
-    Nome: eu <br>
-    End: Rua Bla bla Bla <br>
-    Cidade: Qualquer <br>
-    Estado: Sao Paulo <br>
-    Pais: Brasil <br>
-    Celular: 19 9999999999 <br>
-    Aniversário: 01/01/0000 <br>
-    </p>
-</div>
-<div class="nova_pessoa">
-    <p>
-    Nome: eu <br>
-    End: Rua Bla bla Bla <br>
-    Cidade: Qualquer <br>
-    Estado: Sao Paulo <br>
-    Pais: Brasil <br>
-    Celular: 19 9999999999 <br>
-    Aniversário: 01/01/0000 <br>
-    </p>
-</div>
-<div class="nova_pessoa">
-    <p>
-    Nome: eu <br>
-    End: Rua Bla bla Bla <br>
-    Cidade: Qualquer <br>
-    Estado: Sao Paulo <br>
-    Pais: Brasil <br>
-    Celular: 19 9999999999 <br>
-    Aniversário: 01/01/0000 <br>
-    </p>
-</div>
-<div class="nova_pessoa">
-    <p>
-    Nome: eu <br>
-    End: Rua Bla bla Bla <br>
-    Cidade: Qualquer <br>
-    Estado: Sao Paulo <br>
-    Pais: Brasil <br>
-    Celular: 19 9999999999 <br>
-    Aniversário: 01/01/0000 <br>
-    </p>
-</div>
+
+
+
+
 
 
 </div>
@@ -245,7 +208,7 @@
     
 <script>
 // construir Menu e divs abaixo como grid sendo o div menu total e as divs adicionais como sendo pips em CSS **ok
-//criar a div com input, manipula quando clicar, quando finaliza inclui por splice botão atualiza ou salva
+//criar a div com input, manipula quando clicar, quando finaliza inclui por splice botão atualiza ou salva ** ok === falta inclui atualizar e salvar
 // div deve ter um botão icon lixo para excluir
 // arrastar os disv para colunas adicionais 
 //adiconar os efeitos
@@ -261,9 +224,94 @@
 //O usuário pode ver o efeito de seleção removido de um nome na lista de resumo quando um novo nome é clicado.
 
 
-const nova_pessoa = [
-  {nome: "...", rua: "...", cidade: "...", estado: "...", pais: "...", telefone: "...", aniversario: "..."}
-];
+function addPessoas(){
+const coluna1 = document.getElementById("coluna1")
+
+const divNew = document.createElement("div"); 
+divNew.setAttribute("class","nova_pessoa");
+divNew.setAttribute("id","nova_pessoa"); 
+
+
+
+let menuDiv = document.createElement('div')
+menuDiv.setAttribute("class","menuDiv");
+menuDiv.setAttribute("id","menuDiv"); 
+
+
+
+let seuNome = document.createElement('input');
+seuNome.setAttribute("nome", "nome[]");
+seuNome.setAttribute("placeholder", "Nome:");
+seuNome.setAttribute("type", "text");
+
+
+let seuEnd = document.createElement('input');
+seuEnd.setAttribute("nome", "end[]");
+seuEnd.setAttribute("placeholder", "Endereço:");
+seuEnd.setAttribute("type", "text");
+
+
+let suaCidade = document.createElement('input');
+suaCidade.setAttribute("nome", "cidade[]");
+suaCidade.setAttribute("placeholder", "Cidade:");
+suaCidade.setAttribute("type", "text");
+
+let seuEstado = document.createElement('input');
+seuEstado.setAttribute("nome", "estado[]");
+seuEstado.setAttribute("placeholder", "Estado:");
+seuEstado.setAttribute("type", "text");
+
+let seuCelular = document.createElement('input');
+seuCelular.setAttribute("nome", "celular[]");
+seuCelular.setAttribute("placeholder", "Celular:");
+seuCelular.setAttribute("type", "number");
+
+let seuAniversario = document.createElement('input');
+seuAniversario.setAttribute("nome", "aniversaio[]");
+seuAniversario.setAttribute("placeholder", "Aniverário:");
+seuAniversario.setAttribute("type", "number");
+
+
+divNew.appendChild(menuDiv);
+divNew.appendChild(seuNome);
+divNew.appendChild(seuEnd);
+divNew.appendChild(suaCidade);
+divNew.appendChild(seuEstado);
+divNew.appendChild(seuCelular);
+divNew.appendChild(seuAniversario);
+
+//https://pt.stackoverflow.com/questions/328552/como-inserir-div-com-campos-de-input-dentro-do-div-usando-jquery-ou-javascript#:~:text=Muito%20simples%2C%20%C3%A9%20s%C3%B3%20voc%C3%AA,criada%20dentro%20da%20div%20%23ingredientes%20.
+coluna1.appendChild(divNew);
+}
+
+
+let pessoaVazia = [];
+
+let novaPessoa = [{
+   nome: "", 
+   end: "", 
+   cidade: "", 
+   estado: "", 
+   pais: "", 
+   telefone: "", 
+   aniversario: ""
+}];
+
+
+//divNew.value = nova_pessoa; // ver function com array **** https://digitalinnovation.one/artigos/meuprimeiroprojeto-funcoes-para-manipular-arrays-com-javascript-2
+
+
+//const inputNome = document.createElement("ïnput");
+//inputNome.setAttribute("type", "number");
+//inputNome.value= "Nome"
+
+//const inputEnd = document.createElement("ïnput");
+//const inputCid = document.createElement("ïnput");
+//const inputEst = document.createElement("ïnput");
+//const inputPais = document.createElement("ïnput");
+//const inputTel = document.createElement("ïnput");
+//const inputAni = document.createElement("ïnput");
+
 
 </script>
 </body>

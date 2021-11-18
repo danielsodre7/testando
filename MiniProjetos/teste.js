@@ -183,15 +183,36 @@ var timer= new Timer(function(){
 }, 3000);
 timer.resume();
 */
-
+/*
 let scores = [1, 2, 3, 4, 5];
 
 let deletedScores = scores.splice(1, 2);
 
 console.log(scores);
+*/
 
 
 
+var div = document.createElement('div');
+
+for(var i = 0; i < 10; i++) {
+  var inputElement=document.createElement('input');
+  inputElement.setAttribute('type','text');
+  inputElement.setAttribute('id','id' + i);
+  inputElement.value='My Value ' + (i+1);
+  div.appendChild(inputElement);
+}
+
+document.getElementById("container").appendChild(div);
+
+// Adding class
+var inputElements = document.querySelectorAll('input');
+
+for(var i=0; i < inputElements.length; i++) {
+  inputElements[i].className='MyClass' + i;
+  // Getting value
+  console.log(inputElements[i].value);
+}
 
 
 
