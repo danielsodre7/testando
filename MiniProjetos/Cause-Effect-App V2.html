@@ -24,11 +24,9 @@
     .total {
         display: grid;
         grid-template-areas: "menu menu menu menu menu" "col1 col2 col3 col4 col5" "rodape rodape rodape rodape rodape"  ;
-        grid-template-columns: auto auto auto auto auto;
-        grid-auto-columns: 20% 20% 20% 20% 20%;
-        
+        grid-template-columns: 280px 280px 280px 280px 280px;
+        grid-auto-columns: 20% 20% 20% 20% 20%;        
     }
-
     
     .total{
         margin-left: 20px;
@@ -214,7 +212,7 @@
 //adiconar os efeitos
 
 //Histórias de usuários:
-//O usuário pode ver uma lista de nomes de pessoas organizados verticalmente em um painel de resumo na página.
+//O usuário pode ver uma lista de nomes de pessoas organizados verticalmente em um painel de resumo na página. **** mudei para modelo pipe
 //O usuário pode clicar em um nome na lista para atualizar um painel adjacente na página com o nome completo, endereço, número de telefone e aniversário desse indivíduo.
 //O usuário pode clicar em outro nome na lista para atualizar o painel de detalhes com as informações desse indivíduo.
 
@@ -237,6 +235,12 @@ let menuDiv = document.createElement('div')
 menuDiv.setAttribute("class","menuDiv");
 menuDiv.setAttribute("id","menuDiv"); 
 
+
+<span class="material-icons-outlined">
+delete
+</span>
+
+e872
 
 
 let seuNome = document.createElement('input');
