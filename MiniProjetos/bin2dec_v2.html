@@ -76,23 +76,26 @@
     </div>
     
     <script>
+/*
+        function valiBin (binarioTest) {
+            
+            var validarBin = new RegExp(/([0-1]{1,8})/);
 
-        function validbin (binarioTest) {
-            
-            var validarBin = new RegExp(/^[0-1]{8}$/);
-            
-            return validarBin.test(binarioTest)       
+            return validarBin.exec(binarioTest);      
             
         }
-
+*/
         function binDec () {
+
             const convert_bin = document.getElementById("binario").value;
             
+            const validarBin = /([0-1]{1,8})/.test(convert_bin);
+            //const validadoBin = validarBin.test(convert_bin)
           
-            if (convert_bin !== validbin) {
+            if (validarBin !== true) {
                 alert("Incerir 0 ou 1");
-                
-            } else if(convert_bin.length>8) {                
+                return false;
+            } else if(convert_bin.length>8) {
                 alert("Incerir 8 digitos");
                 return false;
             } else {

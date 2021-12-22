@@ -12,6 +12,9 @@
     padding: 0;
     border: 0;
     }
+    html{
+        scroll-behavior: smooth;
+    }
 
    
     body {
@@ -24,14 +27,15 @@
     .total {
         display: grid;
         grid-template-areas: "menu menu menu menu menu" "col1 col2 col3 col4 col5" "rodape rodape rodape rodape rodape"  ;
-        grid-template-columns: 280px 280px 280px 280px 280px;
+        grid-template-columns: 310px 290px 280px 280px 280px;
         grid-auto-columns: 20% 20% 20% 20% 20%;        
     }
     
     .total{
-        margin-left: 20px;
+        margin-left: 0px;
         align-items: center;
         justify-content: center;
+        background-color: rgb(211, 233, 248);
 
     }
 
@@ -39,51 +43,135 @@
         grid-area: menu;
     }
 
+    #luz{
+        background-color: rgba(248, 244, 248, 0);
+        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 260px;
+        max-height: 600px;
+        color: rgb(231, 91, 161);
+        font-size: 18px;
+         
+    }
+
     .col1{
         grid-area: col1;
-        border-right : 2px solid black;
-        background-color: lightslategray;
+        border-right : 2px solid #849ef5;
+        background-color: rgb(255, 255, 255);
         height: 100%;
         min-height: 820px;
+        max-height: 840px;
+
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-top: 10px;
+        color: rgb(55, 180, 238);
+        font-size: 20px;
+
+        overflow-y: visible;
+        overflow-x: hidden;        
+
     }
-    .col2{
-        grid-area: col2;
-        border-right : 2px solid black;
-        background-color: lightslategray;
-        height: 100%;;
+
+    .col1::-webkit-scrollbar{
+        width: 10px;
+        border: none;
+    
     }
-    .col3{
-        grid-area: col3;
-        border-right : 2px solid black;
-        background-color: lightslategray;
-        height: 100%;;
-    }
-    .col4{
-        grid-area: col4;
-        border-right : 2px solid black;
-        background-color: lightslategray;
-        height: 100%;;
-    }
-    .col5{
-        grid-area: col5;
-        border-right : 2px solid black;
-        background-color: lightslategray;
-        height: 100%;
-    }
-    .rodape{
-        grid-area: rodape;
+    .col1::-webkit-scrollbar-thumb{
+        background-color: rgb(55, 180, 238);        
+        border-radius: 3px solid rgb(55, 180, 238);
+        height: 80px;
+        margin-top: 30px;
         
     }
 
+    
+    .col2{
+        grid-area: col2;
+        border-right : 2px solid #849ef5;
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-top: 10px;
+        color: rgb(55, 238, 229);
+        font-size: 20px;
+    }
+    .col3{
+        grid-area: col3;
+        border-right : 2px solid #849ef5;
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-top: 10px;
+        color: rgb(238, 128, 55);
+        font-size: 20px;
+    }
+    .col4{
+        grid-area: col4;
+        border-right : 2px solid #849ef5;
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-top: 10px;
+        color: rgb(174, 238, 55);
+        font-size: 20px;
+    }
+    .col5{
+        grid-area: col5;
+        border-right : 2px solid #849ef5;
+        background-color: rgb(255, 255, 255);
+        height: 100%;
+        border-radius: 20px;
+        margin-right: 5px;
+        margin-top: 10px;
+        color: rgb(134, 55, 238);
+        font-size: 20px;
+    }
+    
+
+    .input[type=text]{ 
+    background: #bfdbfc; 
+    border:none;
+    border-radius: 3px;
+    }
+
+    .input[type=number]{ 
+    background: #bfdbfc; 
+    border:none;
+    border-radius: 3px;
+
+    }
+        
+    textarea{
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+    }
+    
+
     .nova_pessoa{
         width: 260px;
-        height: 170px;
-        background-color: rgb(142, 191, 241);
+        height: 190px;
+        background-color: rgb(191, 219, 252);
         border-radius: 5px;
         margin-left: 5px;
         margin-right: 20px;
         margin-top: 10px;
     }   
+
+    .nova_pessoa ative2{
+        background-color: #bfdbfc;
+    }
 
     .nova_pessoa input{
         width: 240px;
@@ -98,28 +186,40 @@
     }
 
 
-    p{
-        margin: 20px;
-        margin-top: 5px;
+
+    .textoDiv{
+        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 260px;
     }
 
     .menu{
-        height: 30px;
+        height: 40px;
         width: 100%;
-        background-color: blueviolet;
-        margin-top: 0px;
-        margin-bottom: 0px;
+        background-color: rgb(229, 214, 243);
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        border-right : 2px solid rgb(132, 158, 245);
     }
 
 
     .rodape{
-        background-color: lightskyblue;
+        background-color: rgb(192, 228, 250);
         width: 100%;
         height: 50px;
-        margin-top: 2px;
+        margin-top: 20px;
         margin-bottom: 0px;
+        border-radius: 10px;
+        border-right : 2px solid #849ef5;
     }
-
+     
+    .rodape{
+        grid-area: rodape;
+        margin-top: 20px;        
+    }
 
     </style>
 
@@ -129,78 +229,21 @@
 
     <div class="total">
 <div class="menu">
-<button id="addPessoas" onclick="a()"> Nova pessoa</button>
-<button id="luz" onclick="addPessoas()"> + 11 </button>
+<button id="luz" onclick="addPessoas()"> Adicionar pessoa </button>
 </div>
 
-<div class="col1" id="coluna1"> Coluna 1
+<div class="col1" id="coluna1"> <p class="textoDiv"> Coluna 1 </p> </div>
 
+<div class="col2" id="coluna2"> <p class="textoDiv"> Coluna 2 </p> </div>
 
+<div class="col3" id="coluna3"> <p class="textoDiv"> Coluna 3 </p> </div>
 
+<div class="col4" id="coluna4"> <p class="textoDiv"> Coluna 4 </p> </div>
 
-
-
-</div>
-
-<div class="col2" id="coluna"> Coluna 2
-    <div class="nova_pessoa">
-        <p>
-        Nome: eu <br>
-        End: Rua Bla bla Bla <br>
-        Cidade: Qualquer <br>
-        Estado: Sao Paulo <br>
-        Pais: Brasil <br>
-        Celular: 19 9999999999 <br>
-        Aniversário: 01/01/0000 <br>
-        </p>
-    </div>
-</div>
-
-<div class="col3" id="coluna"> Coluna 3
-    <div class="nova_pessoa">
-        <p>
-        Nome: eu <br>
-        End: Rua Bla bla Bla <br>
-        Cidade: Qualquer <br>
-        Estado: Sao Paulo <br>
-        Pais: Brasil <br>
-        Celular: 19 9999999999 <br>
-        Aniversário: 01/01/0000 <br>
-        </p>
-    </div>
-</div>
-
-<div class="col4" id="coluna"> Coluna 4
-    <div class="nova_pessoa">
-        <p>
-        Nome: eu <br>
-        End: Rua Bla bla Bla <br>
-        Cidade: Qualquer <br>
-        Estado: Sao Paulo <br>
-        Pais: Brasil <br>
-        Celular: 19 9999999999 <br>
-        Aniversário: 01/01/0000 <br>
-        </p>
-    </div>
-</div>
-
-<div class="col5" id="coluna">Coluna 5
-    <div class="nova_pessoa">
-        <p>
-        Nome: eu <br>
-        End: Rua Bla bla Bla <br>
-        Cidade: Qualquer <br>
-        Estado: Sao Paulo <br>
-        Pais: Brasil <br>
-        Celular: 19 9999999999 <br>
-        Aniversário: 01/01/0000 <br>
-        </p>
-    </div>
-</div>
+<div class="col5" id="coluna5"> <p class="textoDiv"> Coluna 5 </p> </div>
 
 <div class="rodape">
-    fim
-</div>
+    </div>
 
 </div>
     
@@ -208,8 +251,8 @@
 // construir Menu e divs abaixo como grid sendo o div menu total e as divs adicionais como sendo pips em CSS **ok
 //criar a div com input, manipula quando clicar, quando finaliza inclui por splice botão atualiza ou salva ** ok === falta inclui atualizar e salvar
 // div deve ter um botão icon lixo para excluir
-// arrastar os disv para colunas adicionais 
-//adiconar os efeitos
+// arrastar os disv para colunas adicionais ==
+//adiconar os efeitos de inclusao de pessoa
 
 //Histórias de usuários:
 //O usuário pode ver uma lista de nomes de pessoas organizados verticalmente em um painel de resumo na página. **** mudei para modelo pipe
@@ -222,12 +265,20 @@
 //O usuário pode ver o efeito de seleção removido de um nome na lista de resumo quando um novo nome é clicado.
 
 
+
+// construção:
+// crie uma função para criar uma div a partir da coluna1 pegando pelo ID
+// criei uma div para o cabeçalho para colocar o ID e o icon de deletar
+
+
 function addPessoas(){
 const coluna1 = document.getElementById("coluna1")
 
+
+// const cria o elemento div
 const divNew = document.createElement("div"); 
-divNew.setAttribute("class","nova_pessoa");
-divNew.setAttribute("id","nova_pessoa"); 
+divNew.setAttribute("class","nova_pessoa"); // o iten divNew chama a const e o setAttribute inclui o atribudo a ser usado
+divNew.setAttribute("id","nova_pessoa"); // com o nome consigo incluir os atributos nesse caso a class
 
 
 
@@ -235,49 +286,59 @@ let menuDiv = document.createElement('div')
 menuDiv.setAttribute("class","menuDiv");
 menuDiv.setAttribute("id","menuDiv"); 
 
-
+/*
 <span class="material-icons-outlined">
 delete
 </span>
 
 e872
-
-
+*/
+// para inclui os inputs fiz o mesmo processo do cabeçalho
 let seuNome = document.createElement('input');
-seuNome.setAttribute("nome", "nome[]");
+seuNome.setAttribute("class","input");
+seuNome.setAttribute("nome", "nome[]");// porem inclui atributos necessarios para a input
 seuNome.setAttribute("placeholder", "Nome:");
 seuNome.setAttribute("type", "text");
 
 
 let seuEnd = document.createElement('input');
+seuEnd.setAttribute("class","input");
 seuEnd.setAttribute("nome", "end[]");
 seuEnd.setAttribute("placeholder", "Endereço:");
 seuEnd.setAttribute("type", "text");
 
 
 let suaCidade = document.createElement('input');
+suaCidade.setAttribute("class","input");
 suaCidade.setAttribute("nome", "cidade[]");
 suaCidade.setAttribute("placeholder", "Cidade:");
 suaCidade.setAttribute("type", "text");
 
 let seuEstado = document.createElement('input');
+seuEstado.setAttribute("class","input");
 seuEstado.setAttribute("nome", "estado[]");
 seuEstado.setAttribute("placeholder", "Estado:");
 seuEstado.setAttribute("type", "text");
 
 let seuCelular = document.createElement('input');
+seuCelular.setAttribute("class","input");
 seuCelular.setAttribute("nome", "celular[]");
 seuCelular.setAttribute("placeholder", "Celular:");
 seuCelular.setAttribute("type", "number");
 
+var RegExp =/\(\d{2}\)\s\d{4,5}-?\d{4}/g;
+RegExp.test(seuCelular);
+
 let seuAniversario = document.createElement('input');
+seuAniversario.setAttribute("class","input");
 seuAniversario.setAttribute("nome", "aniversaio[]");
 seuAniversario.setAttribute("placeholder", "Aniverário:");
 seuAniversario.setAttribute("type", "number");
 
 
-divNew.appendChild(menuDiv);
-divNew.appendChild(seuNome);
+
+divNew.appendChild(menuDiv); // nesse momento eu defini o elemento como o menuDiv sendo filho do divNew
+divNew.appendChild(seuNome); // para isso usei a marcação ponto divNew.appendChild e entre () indiquei qual o ememento
 divNew.appendChild(seuEnd);
 divNew.appendChild(suaCidade);
 divNew.appendChild(seuEstado);
@@ -289,6 +350,15 @@ coluna1.appendChild(divNew);
 }
 
 
+function validBin (binarioTest) {
+            
+            var validarBin = new RegExp(/^[0-1]{8}$/);
+            
+            return validarBin.test(binarioTest)       
+            
+        }
+
+//ainda não está sendo usada
 let pessoaVazia = [];
 
 let novaPessoa = [{
@@ -303,18 +373,6 @@ let novaPessoa = [{
 
 
 //divNew.value = nova_pessoa; // ver function com array **** https://digitalinnovation.one/artigos/meuprimeiroprojeto-funcoes-para-manipular-arrays-com-javascript-2
-
-
-//const inputNome = document.createElement("ïnput");
-//inputNome.setAttribute("type", "number");
-//inputNome.value= "Nome"
-
-//const inputEnd = document.createElement("ïnput");
-//const inputCid = document.createElement("ïnput");
-//const inputEst = document.createElement("ïnput");
-//const inputPais = document.createElement("ïnput");
-//const inputTel = document.createElement("ïnput");
-//const inputAni = document.createElement("ïnput");
 
 
 </script>

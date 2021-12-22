@@ -192,7 +192,7 @@ console.log(scores);
 */
 
 
-
+/*
 var div = document.createElement('div');
 
 for(var i = 0; i < 10; i++) {
@@ -213,7 +213,15 @@ for(var i=0; i < inputElements.length; i++) {
   // Getting value
   console.log(inputElements[i].value);
 }
+*/
 
+var validarBin = new RegExp(/([0-1]{1,8})/);
+
+const convert_in = "1111";
+
+const logg =  validarBin.exec(convert_in);   
+
+console.log(logg)
 
 
 
