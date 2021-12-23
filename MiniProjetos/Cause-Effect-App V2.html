@@ -146,7 +146,16 @@
     background: #bfdbfc; 
     border:none;
     border-radius: 3px;
-
+    }
+    .input[type=tel]{ 
+    background: #bfdbfc; 
+    border:none;
+    border-radius: 3px;
+    }
+    .input[type=date]{ 
+    background: #bfdbfc; 
+    border:none;
+    border-radius: 3px;
     }
         
     textarea{
@@ -183,6 +192,11 @@
     .menuDiv{
         width: 260px;
         height: 30px;
+    }
+
+    .menuDiv png{
+        width: 29px;
+        height: 29px;
     }
 
 
@@ -274,25 +288,16 @@
 function addPessoas(){
 const coluna1 = document.getElementById("coluna1")
 
-
 // const cria o elemento div
 const divNew = document.createElement("div"); 
 divNew.setAttribute("class","nova_pessoa"); // o iten divNew chama a const e o setAttribute inclui o atribudo a ser usado
 divNew.setAttribute("id","nova_pessoa"); // com o nome consigo incluir os atributos nesse caso a class
 
-
-
 let menuDiv = document.createElement('div')
 menuDiv.setAttribute("class","menuDiv");
-menuDiv.setAttribute("id","menuDiv"); 
+menuDiv.setAttribute("id","menuDiv");
+menuDiv.setAttribute("src","delete.png");
 
-/*
-<span class="material-icons-outlined">
-delete
-</span>
-
-e872
-*/
 // para inclui os inputs fiz o mesmo processo do cabeçalho
 let seuNome = document.createElement('input');
 seuNome.setAttribute("class","input");
@@ -320,20 +325,19 @@ seuEstado.setAttribute("nome", "estado[]");
 seuEstado.setAttribute("placeholder", "Estado:");
 seuEstado.setAttribute("type", "text");
 
+
 let seuCelular = document.createElement('input');
 seuCelular.setAttribute("class","input");
 seuCelular.setAttribute("nome", "celular[]");
-seuCelular.setAttribute("placeholder", "Celular:");
-seuCelular.setAttribute("type", "number");
+seuCelular.setAttribute("placeholder", "Contato:");
+seuCelular.setAttribute("type", "tel");
 
-var RegExp =/\(\d{2}\)\s\d{4,5}-?\d{4}/g;
-RegExp.test(seuCelular);
 
 let seuAniversario = document.createElement('input');
 seuAniversario.setAttribute("class","input");
 seuAniversario.setAttribute("nome", "aniversaio[]");
 seuAniversario.setAttribute("placeholder", "Aniverário:");
-seuAniversario.setAttribute("type", "number");
+seuAniversario.setAttribute("type", "date");
 
 
 
@@ -347,29 +351,33 @@ divNew.appendChild(seuAniversario);
 
 //https://pt.stackoverflow.com/questions/328552/como-inserir-div-com-campos-de-input-dentro-do-div-usando-jquery-ou-javascript#:~:text=Muito%20simples%2C%20%C3%A9%20s%C3%B3%20voc%C3%AA,criada%20dentro%20da%20div%20%23ingredientes%20.
 coluna1.appendChild(divNew);
+
 }
 
 
-function validBin (binarioTest) {
-            
-            var validarBin = new RegExp(/^[0-1]{8}$/);
-            
-            return validarBin.test(binarioTest)       
-            
-        }
 
-//ainda não está sendo usada
+//ainda não está sendo usada mas vai criar o array
+function NovaPessoa(){
 let pessoaVazia = [];
 
+let pegNome = document.querySelector('seuNome').value;
+let pegEnd = document.querySelector('seuEnd').value;
+let pegCidade = document.querySelector('suaCidade').value;
+let pegEstado = document.querySelector('seuEstado').value;
+let pegCelular = document.querySelector('seuCelular').value;
+let pegAniv = document.querySelector('seuAniversario').value;
+
 let novaPessoa = [{
-   nome: "", 
-   end: "", 
-   cidade: "", 
-   estado: "", 
-   pais: "", 
-   telefone: "", 
-   aniversario: ""
+   nome: pegNome, 
+   end: pegEnd, 
+   cidade: pegCidade, 
+   estado: pegEstado, 
+   contato: pegCelular, 
+   aniversario: pegAniv
 }];
+
+
+}
 
 
 //divNew.value = nova_pessoa; // ver function com array **** https://digitalinnovation.one/artigos/meuprimeiroprojeto-funcoes-para-manipular-arrays-com-javascript-2

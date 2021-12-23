@@ -87,15 +87,14 @@
 */
         function binDec () {
 
-            const convert_bin = document.getElementById("binario").value;
+            const convert_bin = document.getElementById("binario").value; // pegando o valor inserido pelo usuario pegando o valor digitado do ID binario
             
-            const validarBin = /([0-1]{1,8})/.test(convert_bin);
-            //const validadoBin = validarBin.test(convert_bin)
+            const validarBin = /([0-1]{1,8})/.test(convert_bin); //fazendo a validaçao do valor inserido se é 0 ou 1 e no maximo 8 caracteres
           
-            if (validarBin !== true) {
+            if (validarBin !== true) { // se o valor inserido for diferente do valor testado entao retorna falso e pede para inserir o correto
                 alert("Incerir 0 ou 1");
                 return false;
-            } else if(convert_bin.length>8) {
+            } else if(convert_bin.length>8) { // se o valor for maior que 8 caracteres informa que tem que inserir menos
                 alert("Incerir 8 digitos");
                 return false;
             } else {
@@ -104,9 +103,9 @@
 
            
             
-            const numeroD = parseInt(convert_bin, 2);
+            const numeroD = parseInt(convert_bin, 2);// converte o valor em inteiro
 
-            document.getElementById("retorno").value = numeroD;
+            document.getElementById("retorno").value = numeroD; // inclui o valor no campo de resposta
             return true;
         }
 
