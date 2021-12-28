@@ -333,6 +333,7 @@ seuCelular.setAttribute("placeholder", "Contato:");
 seuCelular.setAttribute("type", "tel");
 
 
+
 let seuAniversario = document.createElement('input');
 seuAniversario.setAttribute("class","input");
 seuAniversario.setAttribute("nome", "aniversaio[]");
@@ -354,6 +355,14 @@ coluna1.appendChild(divNew);
 
 }
 
+let celAjustado;
+    if(isCelular) {
+        celAjustado = seuCelular.replace(/(\d{5})(\d{4})/,
+                        function( regex, arg1, arg2) {
+                        return arg1 + '-' + arg2 ;
+                        });
+                        tel.value = celAjustado;
+}
 
 
 //ainda não está sendo usada mas vai criar o array

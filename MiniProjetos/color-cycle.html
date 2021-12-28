@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores</title>
+    <style>
+    
+    * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+
+   
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(245, 247, 250);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .total {
+        display: grid;
+        grid-template-areas: "menu" "novas-cores" "rodape"  ;
+        grid-template-columns: auto auto auto;
+        grid-auto-columns: auto auto 20%;        
+    }
+    
+    .total{
+        margin-left: 0px;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(211, 233, 248);
+        display: inline-block;
+
+    }
+
+    .menu{
+        width: 100%;
+        height: 0px;
+        text-align: center;
+        font-size: 60px;
+        margin-bottom: -90px;
+    }
+
+    
+    
+     /*corpo*/
+    
+    .novas-cores{
+        width: 100%;
+        height: 500px;
+        float: left;
+        margin-top: 250px;
+        margin-bottom: 100px;
+        background-color: rgb(212, 96, 96);
+    }
+
+        /* botoes de RGB e HSL retirar cor*/
+    .opcao-formato-cor{
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: brown;
+    }
+    .opcao-formato-cor .rgb{
+        height: 30px;
+        width: 100px;
+        align-items: inherit;
+        margin-left: 35px;
+        margin-bottom: 30px;
+        background-color: ivory;
+    }
+    .opcao-formato-cor .hsl{
+        height: 30px;
+        width: 100px;
+        align-items: inherit;
+        margin-left: 35px;
+        margin-bottom: 30px;
+        background-color: ivory;
+    }
+
+
+    /*tres tipos de formatos de cores*/
+
+    .tipos-formato-cor{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0e68c;
+        
+    }
+
+    .tipos-formato-cor span{
+        text-align: end;
+        position: absolute;
+        margin-top: -170px;
+        font-size: 30px;
+    }
+
+    .tipos-formato-cor .primeira{
+        width: 300px;
+        height: 170px;
+        display: inherit;
+        margin-top: 30px;
+        margin-left: 20px;
+        background-color: red;
+    }
+    .tipos-formato-cor .segunda{
+        width: 300px;
+        height: 170px;
+        margin-top: 30px;
+        display: inherit;
+        margin-left: 20px;
+        background-color: green;
+    }
+    .tipos-formato-cor .terceira{
+        width: 300px;
+        height: 170px;
+        margin-top: 30px;
+        display: inherit;
+        margin-left: 20px;
+        background-color: blue;
+    }
+
+    input{
+        width:90px;
+        height: 30px; 
+        align-items: baseline;
+        justify-content: center;
+        margin-bottom: -1px;
+    }
+
+    /*As cores que serao inseridas pelo usuario*/
+    .cores-inceridas{
+        width: 100%;
+        height:80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: cyan;
+    }
+    
+    
+    .cor{
+        width: 90px;
+        height: 60px;
+        margin-left: 15px;
+        align-items: inherit;
+        background-color: chocolate;
+    }
+    
+    .centralizar{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .mudando-cores-auto{
+        width: 50%;
+        height: 145px;
+        align-items: inherit;
+        background-color: rgb(203, 156, 247);
+    }
+
+
+    
+
+    /*botoes de funcao*/
+    .botoes-funcoes{
+        width: 100%;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: khaki;
+    }
+
+    button{
+        width: 300px;
+        height: 90px;
+        background-color: lawngreen;
+        margin-left: 10px;
+        font-size: 50px;
+        
+    }
+    
+    .velocidade{
+        width: 10%;
+        height: 40px;
+        margin-left: 45%;
+        margin-bottom: 30px;
+        }
+    
+    
+    
+    </style>
+
+</head>
+
+<body >
+    
+    <div class="total">
+
+        <div class="menu">
+            Mudando as Cores
+        </div>
+
+        <div class="novas-cores">
+
+
+        <div class="opcao-formato-cor">
+            <div class="rgb">RGB</div>
+            <div class="hsl">HSL</div>
+        </div>
+
+        <div class="tipos-formato-cor">
+            <span>Incerir nos campos em brancos os valores desejados de cada cor</span> 
+            <div class="o-que-e-rgb">colocar dasdasdasdaa asdsdasdas dasdas das das das</div>
+            <div class="primeira"><input type="number" name="primeira-item" id="item1"></div> 
+            <div class="segunda"><input type="number" name="segundo-item" id="item2"></div>
+            <div class="terceira"><input type="number" name="terceiro-item" id="item3"></div>
+            <div class="o-que-e-hsl">colocar dasdasdasdaa asdsdasdas dasdas das das das</div>
+
+            
+        </div>
+
+        <div class="cores-inceridas">
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+            <div class="cor"></div>
+
+        </div>
+
+        <div class="centralizar">
+        <div class="mudando-cores-auto"></div>
+        </div>
+        </div>
+           
+
+
+        <input type="range" placeholder="Inserir a velocidade " class="velocidade">
+
+        <div class="botoes-funcoes">
+            <button class="incluir-cores">Incluir</button>
+            <button class="liga">Iniciar</button>
+            <button class="desligar">Parar</button>
+            
+        
+        </div>
+
+    </div>
+    
+<script>
+/*
+Histórias de usuários
+ O usuário pode especificar uma cor de preenchimento inicial como um código de cores CSS padrão hexadecimal em três componentes individuais de dois dígitos cada - vermelho, azul e verde
+ O usuário pode especificar um valor de incremento para cada componente de cor que será adicionado a esse componente a cada 0,25 segundo
+ O usuário pode ver a caixa que contém a mudança de cor de preenchimento a cada 0,25 segundos
+ O usuário só pode alterar os componentes de cor e seus incrementos quando o aplicativo é interrompido https://codepen.io/SoumyajitChand/pen/wjKVed
+ O usuário pode iniciar e parar a operação de enchimento usando um botão cujo nome muda para 'Iniciar' quando interrompido e 'Parar' quando iniciado
+ O usuário receberá um aviso se algo diferente de dígitos hexadecimais forem inseridos para os componentes de cor
+Recursos bônus
+ O usuário pode alterar o intervalo de tempo entre as mudanças de cor
+ O usuário pode especificar o formato de codificação de cores usado de RGB para outro formato como HSL (de 0° a360°, 0% a 100%, 0% a 100%)
+
+
+formatar css e html com 
+
+Dois botoes acima, um btn para RGB e outro para HSL == ok
+três divs com vermelho, verde e azul com inputs para incluir o valor de cada cor quando RGB ou gifs para H- Hue(tom), S-Saturation e L-lightness(luminosidade) == ok - incluir texto explicativo
+ao lado das divs acima as opcoes de tempo de mudança sendo padrao 0,25 de 0,10 a 0,90 == faltou incluir
+Cada cor inclui uma div abaixo para mostrar as cores sendo limitada a dez para esse caso == ok
+uma div faixa simulando as mudanças de cores == ok
+no final os botoes de incluir, iniciar e parar == ok
+
+formartar javascript
+
+
+*/
+
+</script>
+
+
+</body>
+</html>
+
