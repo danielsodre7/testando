@@ -35,7 +35,7 @@
         margin-left: 0px;
         align-items: center;
         justify-content: center;
-        background-color: rgb(211, 233, 248);
+        background-color: rgb(243, 247, 250);
         display: inline-block;
 
     }
@@ -58,7 +58,13 @@
         float: left;
         margin-top: 250px;
         margin-bottom: 100px;
-        background-color: rgb(212, 96, 96);
+    }
+
+    .novas-cores h1{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 20px;
     }
 
         /* botoes de RGB e HSL retirar cor*/
@@ -70,7 +76,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: brown;
     }
     .opcao-formato-cor .rgb{
         height: 30px;
@@ -78,7 +83,6 @@
         align-items: inherit;
         margin-left: 35px;
         margin-bottom: 30px;
-        background-color: ivory;
     }
     .opcao-formato-cor .hsl{
         height: 30px;
@@ -86,7 +90,6 @@
         align-items: inherit;
         margin-left: 35px;
         margin-bottom: 30px;
-        background-color: ivory;
     }
 
 
@@ -98,7 +101,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #f0e68c;
         
     }
 
@@ -106,7 +108,7 @@
         text-align: end;
         position: absolute;
         margin-top: -170px;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .tipos-formato-cor .primeira{
@@ -115,23 +117,39 @@
         display: inherit;
         margin-top: 30px;
         margin-left: 20px;
-        background-color: red;
+        background-color: none;
     }
+
+    .primeira #um{
+        visibility: hidden;
+    }
+
+
     .tipos-formato-cor .segunda{
         width: 300px;
         height: 170px;
         margin-top: 30px;
         display: inherit;
         margin-left: 20px;
-        background-color: green;
+        background-color: none;
     }
+
+    .segunda #dois{
+        visibility: hidden;
+    }
+
     .tipos-formato-cor .terceira{
         width: 300px;
         height: 170px;
         margin-top: 30px;
         display: inherit;
         margin-left: 20px;
-        background-color: blue;
+        background-color: none;
+    }
+    
+
+    .terceira #tres{
+        visibility: hidden;
     }
 
     input{
@@ -142,6 +160,20 @@
         margin-bottom: -1px;
     }
 
+    .o-que-e-rgb{
+        max-width: 25%;
+        max-height: 100%;
+        text-align: left;
+        visibility: hidden;
+    }
+
+    .o-que-e-hsl{
+        max-width: 25%;
+        max-height: 100%;
+        text-align: right;
+        visibility: hidden;
+    }
+
     /*As cores que serao inseridas pelo usuario*/
     .cores-inceridas{
         width: 100%;
@@ -149,7 +181,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: cyan;
     }
     
     
@@ -158,7 +189,6 @@
         height: 60px;
         margin-left: 15px;
         align-items: inherit;
-        background-color: chocolate;
     }
     
     .centralizar{
@@ -173,7 +203,6 @@
         width: 50%;
         height: 145px;
         align-items: inherit;
-        background-color: rgb(203, 156, 247);
     }
 
 
@@ -186,15 +215,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: khaki;
     }
 
     button{
         width: 300px;
         height: 90px;
-        background-color: lawngreen;
+        background-color: rgb(214, 230, 199);
         margin-left: 10px;
         font-size: 50px;
+        border-radius: 15px;     
         
     }
     
@@ -221,33 +250,37 @@
 
         <div class="novas-cores">
 
-
+        <h1>Escolha uma das duas opções:</h1>
+        
         <div class="opcao-formato-cor">
-            <div class="rgb">RGB</div>
-            <div class="hsl">HSL</div>
+            
+            <div class="rgb" id="rgb">RGB</div>
+            <div class="hsl" id="hsl">HSL</div>
         </div>
 
         <div class="tipos-formato-cor">
-            <span>Incerir nos campos em brancos os valores desejados de cada cor</span> 
-            <div class="o-que-e-rgb">colocar dasdasdasdaa asdsdasdas dasdas das das das</div>
-            <div class="primeira"><input type="number" name="primeira-item" id="item1"></div> 
-            <div class="segunda"><input type="number" name="segundo-item" id="item2"></div>
-            <div class="terceira"><input type="number" name="terceiro-item" id="item3"></div>
-            <div class="o-que-e-hsl">colocar dasdasdasdaa asdsdasdas dasdas das das das</div>
+            <span>Incerir nos campos em brancos os valores desejados de cada cor:</span> 
+            <div class="o-que-e-rgb"> Nessa opção você mistura as cores Vermelho, Verde e Azul 
+                </br> para criar a cor, para isso insira nos campos apenas pares de numeros ou letras 
+                </br> e numeros ex: 09 ou f8. 
+                </br> Lembre-se que os códigos são como uma misturas de cores RGB (Red – Vermelho, Green – Verde, Blue – Azul),
+                </br>o código hexadecimal for 006600, deduz-se que a cor é verde, 
+                </br>pois os dois primeiros números (que correspondem ao vermelho – RRGGBB), são 0, 
+                </br>os dois números do meio, são 6 e os dois números finais são 0. </div>
 
+            <div class="primeira" id="primeira">  <input type="number" name="primeira-item" id="item1"> <img src="/MiniProjetos/hue.jpg" id="um" alt="Hue" srcset=""> </div> 
+            <div class="segunda" id="segunda">  <input type="number" name="segundo-item" id="item2"> <img src="/MiniProjetos/saturacao.jpg" id="dois" alt="" srcset=""> </div>
+            <div class="terceira" id="terceira">  <input type="number" name="terceiro-item" id="item3"> <img src="/MiniProjetos/luminosidade.jpg" id="tres" alt="" srcset=""> </div>
+
+            <div class="o-que-e-hsl">O padrão HSL é representado por Hue (tom), 
+                </br>Saturation (saturação) e Lightness (luminosidade). 
+                </br>O valor do tom é medido em ângulos expresso em graus. 
+                </br>O valor de saturação é medido em porcentagem, 
+                </br>sendo 0% um leve sombreado de saturação e 100% uma saturação total da cor.</div>
             
         </div>
 
         <div class="cores-inceridas">
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
-            <div class="cor"></div>
             <div class="cor"></div>
 
         </div>
@@ -289,15 +322,85 @@ formatar css e html com
 
 Dois botoes acima, um btn para RGB e outro para HSL == ok
 três divs com vermelho, verde e azul com inputs para incluir o valor de cada cor quando RGB ou gifs para H- Hue(tom), S-Saturation e L-lightness(luminosidade) == ok - incluir texto explicativo
-ao lado das divs acima as opcoes de tempo de mudança sendo padrao 0,25 de 0,10 a 0,90 == faltou incluir
+ao lado das divs acima as opcoes de tempo de mudança sendo padrao 0,25 de 0,10 a 0,90 == ok
 Cada cor inclui uma div abaixo para mostrar as cores sendo limitada a dez para esse caso == ok
 uma div faixa simulando as mudanças de cores == ok
 no final os botoes de incluir, iniciar e parar == ok
 
 formartar javascript
+- incluir um if else para RGB ou HSL 
+    Precisa incluir nos campos de cor ou png nos 3 campos "item" de acordo com o botao selecionado em 'opcao-formato-cor'
+    aparecer na lateral o texto explicando cada opcao
 
+- input para os dados da cor
+    precisa de uma validacao de dados para regex para cada opcao RGB/HSL se tiver errada aparecer a mensagem de erro ou opcoe de correcao
+
+- incluir um create para incluir as cores inseridas
+    a opcao vai ser no botao "Incluir"
+    a primeira div cor vai ser fixa para o usuario validar a cor
+    cada cor criar um base de informacao
+    limitar a 10 cores para nao sobrecarregar
+    colocar uma mensagem quando chegar no limite de 10 divs cor
+
+- opçao de iniciar ou parar
+    botoes inceridos precisa criar o if esle
+
+
+- velocidade de transicao
+    cada cor incerida altera a div mudando-cores-auto de forma automatica, tendo como padrao 0,25 colocar um if se tiver cido alterado o  intput "velocidade"
+    incluir opcoe fixas para alterar a velocidade de transicao na div mudando-cores-auto pelo intput "velocidade"
 
 */
+
+// mudar para um if else com os dois === 
+document.getElementById("rgb").addEventListener("click", function(){
+    
+    document.clearInterval
+
+    let hls1 = document.getElementById("um");
+    hls1.style.visibility = '';
+    let rgb1 = document.getElementById("primeira");
+    rgb1.style.backgroundColor = 'Red';
+
+    let hls2 = document.getElementById("dois");
+    hls2.style.visibility = '';
+    let rgb2 = document.getElementById("segunda");
+    rgb2.style.backgroundColor = 'Green';
+
+    let hls3 = document.getElementById("tres");
+    hls3.style.visibility = '';
+    let rgb3 = document.getElementById("terceira");
+    rgb3.style.backgroundColor = 'Blue';
+    alert("ok, agora precisa inserir as opções");
+})
+
+
+document.getElementById("hsl").addEventListener("click", function(){
+
+    document.clearInterval
+
+
+    let rgb1 = document.getElementById("primeira");
+    let hls1 = document.getElementById("um");
+    rgb1.style.backgroundColor = '';
+    hls1.style.visibility = 'visible';
+
+    let rgb2 = document.getElementById("segunda");
+    let hls2 = document.getElementById("dois");
+    rgb2.style.backgroundColor = '';
+    hls2.style.visibility = 'visible';
+
+    let rgb3 = document.getElementById("terceira");
+    let hls3 = document.getElementById("tres");
+    rgb3.style.backgroundColor = '';
+    hls3.style.visibility = 'visible';
+
+    alert("ok, agora precisa inserir as opções");
+    
+})
+
+
+
 
 </script>
 
