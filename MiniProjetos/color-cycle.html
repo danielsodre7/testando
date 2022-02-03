@@ -260,7 +260,7 @@
 
         <div class="tipos-formato-cor">
             <span>Incerir nos campos em brancos os valores desejados de cada cor:</span> 
-            <div class="o-que-e-rgb"> Nessa opção você mistura as cores Vermelho, Verde e Azul 
+            <div class="o-que-e-rgb" id="o-que-e-rgb"> Nessa opção você mistura as cores Vermelho, Verde e Azul 
                 </br> para criar a cor, para isso insira nos campos apenas pares de numeros ou letras 
                 </br> e numeros ex: 09 ou f8. 
                 </br> Lembre-se que os códigos são como uma misturas de cores RGB (Red – Vermelho, Green – Verde, Blue – Azul),
@@ -272,7 +272,7 @@
             <div class="segunda" id="segunda">  <input type="number" name="segundo-item" id="item2"> <img src="/MiniProjetos/saturacao.jpg" id="dois" alt="" srcset=""> </div>
             <div class="terceira" id="terceira">  <input type="number" name="terceiro-item" id="item3"> <img src="/MiniProjetos/luminosidade.jpg" id="tres" alt="" srcset=""> </div>
 
-            <div class="o-que-e-hsl">O padrão HSL é representado por Hue (tom), 
+            <div class="o-que-e-hsl" id="o-que-e-hsl">O padrão HSL é representado por Hue (tom), 
                 </br>Saturation (saturação) e Lightness (luminosidade). 
                 </br>O valor do tom é medido em ângulos expresso em graus. 
                 </br>O valor de saturação é medido em porcentagem, 
@@ -371,7 +371,27 @@ document.getElementById("rgb").addEventListener("click", function(){
     hls3.style.visibility = '';
     let rgb3 = document.getElementById("terceira");
     rgb3.style.backgroundColor = 'Blue';
+
+    let textoRgb =  document.getElementById("o-que-e-rgb");
+    textoRgb.style.visibility = 'visible';
+
+    let textoRgbnao =  document.getElementById("o-que-e-hsl");
+    textoRgbnao.style.visibility = 'hidden';
+
+    let numerosDoRGB = rgb1.rgb2.rgb3;
+
+    let validandoRgb;
+        if(rgb1, rgb2, rgb3){
+            numeroInseridoRGB = validandoRgb.replace(/(\d{2})/),
+                        function(regex, arg1, arg2, arg3) {
+                            return arg1 + ',' + arg2 + ',' + arg3;
+                        }
+                        numerosDoRGB.value = numeroInseridoRGB;
+        };
+
+
     alert("ok, agora precisa inserir as opções");
+
 })
 
 
@@ -395,8 +415,14 @@ document.getElementById("hsl").addEventListener("click", function(){
     rgb3.style.backgroundColor = '';
     hls3.style.visibility = 'visible';
 
-    alert("ok, agora precisa inserir as opções");
+    let textoRgb =  document.getElementById("o-que-e-hsl");
+    textoRgb.style.visibility = 'visible';
+
+    let textoRgbnao =  document.getElementById("o-que-e-rgb");
+    textoRgbnao.style.visibility = 'hidden';
     
+    alert("ok, agora precisa inserir as opções");
+
 })
 
 

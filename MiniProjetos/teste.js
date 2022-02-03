@@ -213,6 +213,17 @@ for(var i=0; i < inputElements.length; i++) {
   // Getting value
   console.log(inputElements[i].value);
 }
+
+let numerosDoRGB = rgb1.rgb2.rgb3;
+
+    let validandoRgb;
+        if(rgb1, rgb2, rgb3){
+            numeroInseridoRGB = validandoRgb.replace(/(\d{2})/),
+                        function(regex, arg1, arg2, arg3) {
+                            return arg1 + ',' + arg2 + ',' + arg3;
+                        }
+                        numerosDoRGB.value = numeroInseridoRGB;
+        };
 */
 
 var validarBin = new RegExp(/([0-1]{1,8})/);
@@ -223,6 +234,15 @@ const logg =  validarBin.exec(convert_in);
 
 console.log(logg)
 
+
+
+var validarNum = new RegExp(/([0-9]{2})/);
+
+const convert_n = "13232";
+
+const numeroo =  validarNum.test(convert_n);   
+
+console.log(numeroo)
 
 
 
